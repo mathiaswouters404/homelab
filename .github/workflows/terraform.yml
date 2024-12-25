@@ -30,7 +30,9 @@ jobs:
           TF_VAR_pm_api_url: ${{ secrets.PROXMOX_API_URL }}
           TF_VAR_pm_api_token_secret: ${{ secrets.PROXMOX_API_TOKEN }}
           TF_VAR_pm_api_token_id: ${{ secrets.PROXMOX_API_TOKEN_ID }}
-        run: echo "Environment variables set for Terraform."
+        run: |
+          echo "Environment variables set"
+          echo "Proxmox URL: $TF_VAR_pm_api_url"  # Avoid echoing secrets
 
       # Step 4: Initialize Terraform
       - name: Terraform Init
