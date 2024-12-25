@@ -32,7 +32,12 @@ jobs:
           TF_VAR_pm_api_token_id: ${{ secrets.PROXMOX_API_TOKEN_ID }}
         run: |
           echo "Environment variables set"
-          echo "Proxmox URL: $TF_VAR_pm_api_url"  # Avoid echoing secrets
+      
+      # TEMP
+      - name: Print Debug Info
+        run: |
+          echo "Proxmox URL: $TF_VAR_pm_api_url"
+        working-directory: ./terraform
 
       # Step 4: Initialize Terraform
       - name: Terraform Init
@@ -43,17 +48,7 @@ jobs:
       - name: Terraform Plan
         run: terraform plan
         working-directory: ./terraform
-        env:
-          TF_LOG: DEBUG
-          TF_LOG_PATH: /tmp/terraform.log
       
-      # TEMP
-      - name: Upload Terraform Logs
-        uses: actions/upload-artifact@v2
-        with:
-          name: terraform-logs
-          path: /tmp/terraform.log
-
       # Step 6: Terraform Apply (manual approval required)
       - name: Terraform Apply
         if: github.event_name == 'push'
