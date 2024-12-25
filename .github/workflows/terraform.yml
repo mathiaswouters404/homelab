@@ -43,6 +43,9 @@ jobs:
       - name: Terraform Plan
         run: terraform plan
         working-directory: ./terraform
+        env:
+          TF_LOG: DEBUG
+          TF_LOG_PATH: /tmp/terraform.log
 
       # Step 6: Terraform Apply (manual approval required)
       - name: Terraform Apply
