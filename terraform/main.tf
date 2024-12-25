@@ -26,22 +26,23 @@ resource "proxmox_vm_qemu" "test_server" {
   os_type = "cloud-init"
   cores = 2
   sockets = 1
-  cpu = "host"
+  cpu_type = "host"
   memory = 4096
   scsihw = "virtio-scsi-pci"
   bootdisk = "scsi0"
 
   disk {
-    slot = 0
+    slot = "scsi0"
     size = "10G"
-    type = "scsi"
+    type = "disk"
     storage = "local-lvm"
-    iothread = 1
+    iothread = true
   }
   
   network {
-    model = "virtio"
+    model  = "virtio"
     bridge = "vmbr0"
+    id     = 0
   }
 
   # not sure exactly what this is for. presumably something about MAC addresses and ignore network changes during the life of the VM
