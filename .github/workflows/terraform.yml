@@ -46,6 +46,13 @@ jobs:
         env:
           TF_LOG: DEBUG
           TF_LOG_PATH: /tmp/terraform.log
+      
+      # TEMP
+      - name: Upload Terraform Logs
+        uses: actions/upload-artifact@v2
+        with:
+          name: terraform-logs
+          path: /tmp/terraform.log
 
       # Step 6: Terraform Apply (manual approval required)
       - name: Terraform Apply
