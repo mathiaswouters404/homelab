@@ -14,10 +14,6 @@ This repository contains the infrastructure and automation code for my home lab 
 
 ## Key Features
 
-- Terraform:
-    - Provision Proxmox VMs, storage, and network resources.
-    - Automate resource creation and configuration.
-
 - Ansible:
     - Install and configure Kubernetes components, container runtimes, and dependencies.
     - Manage VM-level configuration (e.g., OS setup, security hardening).
@@ -37,7 +33,6 @@ This repository contains the infrastructure and automation code for my home lab 
 
 ```
 homelab/
-├── terraform/                  # Terraform code for provisioning infrastructure
 ├── ansible/                    # Ansible playbooks for cluster setup and configuration
 ├── kubernetes/                 # Kubernetes manifests and Helm charts for workloads
 ├── pipelines/                  # CI/CD pipeline configurations

@@ -6,7 +6,6 @@ Welcome to my repo of my homelab. In this README file I will guide you on settin
 
 ## Install Required Tools
 
-- [Terraform](https://developer.hashicorp.com/terraform/install?product_intent=terraform#linux)
 - [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 - [kubectl](https://google.com)
 - [Proxmox CLI tools](https://google.com)
